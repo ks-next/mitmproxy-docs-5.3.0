@@ -1,0 +1,1080 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <title>Example Addons</title>
+    
+    
+
+    
+    <link rel="stylesheet" href="../style.min.css">
+
+    
+
+    <meta name="generator" content="Hugo 0.68.3" />
+</head>
+<body>
+
+<div class="columns container is-marginless">
+    <div id="sidebar" class="column is-one-quarter">
+        <div class="brand">
+    <a href="https://mitmproxy.org/">
+        <img src='../logo-docs.png' alt="mitmproxy docs"/>
+    </a>
+
+</div>
+<nav class="menu">
+    <p class="menu-label">Overview</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../">Introduction</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-installation/">Installation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-getting-started/">Getting Started</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Beginner Tutorial</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-userinterface/">User Interface</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-interceptrequests/">Intercept Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-modifyrequests/">Modify Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-replayrequests/">Replay Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-whatsnext/">What&#39;s Next</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Core concepts</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../concepts-howmitmproxyworks/">How mitmproxy works</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-modes/">Modes of operation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-certificates/">Certificates</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-features/">Features</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-filters/">Filter expressions</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-protocols/">Protocols</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Addon Development </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../addons-overview/">Addons</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-events/">Events</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-scripting/">Scripting</a>
+        </li>
+    
+        <li >
+            <a class="is-active"
+                href="../addons-examples/">Example Addons</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> HOWTOs </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../howto-kubernetes/">Kubernetes Services</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent/">Transparent Proxying</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-wireshark-tls/">Wireshark and SSL/TLS</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-ignoredomains/">Ignoring Domains</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent-vms/">Transparently Proxying VMs</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-install-system-trusted-ca-android/">Install System CA on Android</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Tutorials </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../tute-clientreplay/">Client replay</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../tute-highscores/">Setting highscores on Apple GameCenter</a>
+        </li>
+    
+</ul>
+</nav>
+
+    </div>
+    <div id="main" class="column content">
+        
+        
+<a class="button is-small is-outlined is-link is-pulled-right"
+   target="_blank"
+   href="https://github.com/mitmproxy/mitmproxy/blob/master/docs/src/content/addons-examples.md"
+>
+    Edit on GitHub
+</a>
+
+
+
+        <h1 id="example-addons"><a class="anchor" href="#example-addons">#&nbsp;&nbsp;</a>Example Addons</h1>
+<ul>
+<li><a href="#events-websocket-specific">events-websocket-specific.py</a> — WebSocket-specific events.</li>
+<li><a href="#http-reply-from-proxy">http-reply-from-proxy.py</a> — Send a reply from the proxy without sending any data to the remote server.</li>
+<li><a href="#log-events">log-events.py</a> — Post messages to mitmproxy&rsquo;s event log.</li>
+<li><a href="#nonblocking">nonblocking.py</a> — Make events hooks non-blocking.</li>
+<li><a href="#duplicate-modify-replay">duplicate-modify-replay.py</a> — Take incoming HTTP requests and replay them with modified parameters.</li>
+<li><a href="#wsgi-flask-app">wsgi-flask-app.py</a> — Host a WSGI app in mitmproxy.</li>
+<li><a href="#commands-simple">commands-simple.py</a> — Add a custom command to mitmproxy&rsquo;s command prompt.</li>
+<li><a href="#io-write-flow-file">io-write-flow-file.py</a> — Generate a mitmproxy dump file.</li>
+<li><a href="#websocket-simple">websocket-simple.py</a> — Process individual messages from a WebSocket connection.</li>
+<li><a href="#http-stream-simple">http-stream-simple.py</a> — Select which responses should be streamed.</li>
+<li><a href="#websocket-inject-message">websocket-inject-message.py</a> — Inject a WebSocket message into a running connection.</li>
+<li><a href="#events-http-specific">events-http-specific.py</a> — HTTP-specific events.</li>
+<li><a href="#anatomy">anatomy.py</a> — Basic skeleton of a mitmproxy addon.</li>
+<li><a href="#commands-flows">commands-flows.py</a> — Handle flows as command arguments.</li>
+<li><a href="#commands-paths">commands-paths.py</a> — Handle file paths as command arguments.</li>
+<li><a href="#tcp-simple">tcp-simple.py</a> — Process individual messages from a TCP connection.</li>
+<li><a href="#options-configure">options-configure.py</a> — React to configuration changes.</li>
+<li><a href="#io-read-saved-flows">io-read-saved-flows.py</a> — Read a mitmproxy dump file.</li>
+<li><a href="#http-stream-modify">http-stream-modify.py</a> — Modify a streamed response.</li>
+<li><a href="#http-modify-query-string">http-modify-query-string.py</a> — Modify HTTP query parameters.</li>
+<li><a href="#contentview">contentview.py</a> — Add a custom message body pretty-printer for use inside mitmproxy.</li>
+<li><a href="#http-trailers">http-trailers.py</a> — This script simply prints all received HTTP Trailers.</li>
+<li><a href="#scripting-minimal-example">scripting-minimal-example.py</a></li>
+<li><a href="#filter-flows">filter-flows.py</a> — Use mitmproxy&rsquo;s filter pattern in scripts.</li>
+<li><a href="#events-tcp-specific">events-tcp-specific.py</a> — TCP-specific events.</li>
+<li><a href="#http-redirect-requests">http-redirect-requests.py</a> — Redirect HTTP requests to another server.</li>
+<li><a href="#http-modify-form">http-modify-form.py</a> — Modify an HTTP form submission.</li>
+<li><a href="#events">events.py</a> — Generic event hooks.</li>
+<li><a href="#options-simple">options-simple.py</a> — Add a new mitmproxy option.</li>
+<li><a href="#internet-in-mirror">internet_in_mirror.py</a> — Mirror all web pages.</li>
+<li><a href="#http-add-header">http-add-header.py</a> — Add an HTTP header to each response.</li>
+</ul>
+<h3 id="community-examples"><a class="anchor" href="#community-examples">#&nbsp;&nbsp;</a>Community Examples</h3>
+<p>Additional examples contributed by the mitmproxy community can be found
+<a href="https://github.com/mitmproxy/mitmproxy/tree/master/examples/contrib">on GitHub</a>.</p>
+<h2 id="events-websocket-specific"><a class="anchor" href="#events-websocket-specific">#&nbsp;&nbsp;</a>Example: events-websocket-specific.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;WebSocket-specific events.&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> mitmproxy.http
+<span style="color:#f92672">import</span> mitmproxy.websocket
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Events</span>:
+    <span style="color:#75715e"># Websocket lifecycle</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">websocket_handshake</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>http<span style="color:#f92672">.</span>HTTPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Called when a client wants to establish a WebSocket connection. The
+</span><span style="color:#e6db74">            WebSocket-specific headers can be manipulated to alter the
+</span><span style="color:#e6db74">            handshake. The flow object is guaranteed to have a non-None request
+</span><span style="color:#e6db74">            attribute.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">websocket_start</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>websocket<span style="color:#f92672">.</span>WebSocketFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            A websocket connection has commenced.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">websocket_message</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>websocket<span style="color:#f92672">.</span>WebSocketFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Called when a WebSocket message is received from the client or
+</span><span style="color:#e6db74">            server. The most recent message will be flow.messages[-1]. The
+</span><span style="color:#e6db74">            message is user-modifiable. Currently there are two types of
+</span><span style="color:#e6db74">            messages, corresponding to the BINARY and TEXT frame types.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">websocket_error</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>websocket<span style="color:#f92672">.</span>WebSocketFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            A websocket connection has had an error.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">websocket_end</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>websocket<span style="color:#f92672">.</span>WebSocketFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            A websocket connection has ended.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+</code></pre></div><h2 id="http-reply-from-proxy"><a class="anchor" href="#http-reply-from-proxy">#&nbsp;&nbsp;</a>Example: http-reply-from-proxy.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Send a reply from the proxy without sending any data to the remote server.&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> http
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(flow: http<span style="color:#f92672">.</span>HTTPFlow) <span style="color:#f92672">-&gt;</span> None:
+    <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>pretty_url <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;http://example.com/path&#34;</span>:
+        flow<span style="color:#f92672">.</span>response <span style="color:#f92672">=</span> http<span style="color:#f92672">.</span>HTTPResponse<span style="color:#f92672">.</span>make(
+            <span style="color:#ae81ff">200</span>,  <span style="color:#75715e"># (optional) status code</span>
+            <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;Hello World&#34;</span>,  <span style="color:#75715e"># (optional) content</span>
+            {<span style="color:#e6db74">&#34;Content-Type&#34;</span>: <span style="color:#e6db74">&#34;text/html&#34;</span>}  <span style="color:#75715e"># (optional) headers</span>
+        )
+
+</code></pre></div><h2 id="log-events"><a class="anchor" href="#log-events">#&nbsp;&nbsp;</a>Example: log-events.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Post messages to mitmproxy&#39;s event log.&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">load</span>(l):
+    ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;This is some informative text.&#34;</span>)
+    ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>warn(<span style="color:#e6db74">&#34;This is a warning.&#34;</span>)
+    ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>error(<span style="color:#e6db74">&#34;This is an error.&#34;</span>)
+
+</code></pre></div><h2 id="nonblocking"><a class="anchor" href="#nonblocking">#&nbsp;&nbsp;</a>Example: nonblocking.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Make events hooks non-blocking.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">When event hooks are decorated with @concurrent, they will be run in their own thread, freeing the main event loop.
+</span><span style="color:#e6db74">Please note that this generally opens the door to race conditions and decreases performance if not required.
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> time
+
+<span style="color:#f92672">from</span> mitmproxy.script <span style="color:#f92672">import</span> concurrent
+
+
+<span style="color:#a6e22e">@concurrent</span>  <span style="color:#75715e"># Remove this and see what happens</span>
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(flow):
+    <span style="color:#75715e"># This is ugly in mitmproxy&#39;s UI, but you don&#39;t want to use mitmproxy.ctx.log from a different thread.</span>
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;handle request: </span><span style="color:#e6db74">%s%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> (flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>host, flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>path))
+    time<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">5</span>)
+    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;start  request: </span><span style="color:#e6db74">%s%s</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> (flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>host, flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>path))
+
+</code></pre></div><h2 id="duplicate-modify-replay"><a class="anchor" href="#duplicate-modify-replay">#&nbsp;&nbsp;</a>Example: duplicate-modify-replay.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Take incoming HTTP requests and replay them with modified parameters.&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(flow):
+    <span style="color:#75715e"># Avoid an infinite loop by not replaying already replayed requests</span>
+    <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>is_replay <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;request&#34;</span>:
+        <span style="color:#66d9ef">return</span>
+    flow <span style="color:#f92672">=</span> flow<span style="color:#f92672">.</span>copy()
+    <span style="color:#75715e"># Only interactive tools have a view. If we have one, add a duplicate entry</span>
+    <span style="color:#75715e"># for our flow.</span>
+    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;view&#34;</span> <span style="color:#f92672">in</span> ctx<span style="color:#f92672">.</span>master<span style="color:#f92672">.</span>addons:
+        ctx<span style="color:#f92672">.</span>master<span style="color:#f92672">.</span>commands<span style="color:#f92672">.</span>call(<span style="color:#e6db74">&#34;view.flows.add&#34;</span>, [flow])
+    flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/changed&#34;</span>
+    ctx<span style="color:#f92672">.</span>master<span style="color:#f92672">.</span>commands<span style="color:#f92672">.</span>call(<span style="color:#e6db74">&#34;replay.client&#34;</span>, [flow])
+
+</code></pre></div><h2 id="wsgi-flask-app"><a class="anchor" href="#wsgi-flask-app">#&nbsp;&nbsp;</a>Example: wsgi-flask-app.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Host a WSGI app in mitmproxy.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">This example shows how to graft a WSGI app onto mitmproxy. In this
+</span><span style="color:#e6db74">instance, we&#39;re using the Flask framework (http://flask.pocoo.org/) to expose
+</span><span style="color:#e6db74">a single simplest-possible page.
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> flask <span style="color:#f92672">import</span> Flask
+<span style="color:#f92672">from</span> mitmproxy.addons <span style="color:#f92672">import</span> asgiapp
+
+app <span style="color:#f92672">=</span> Flask(<span style="color:#e6db74">&#34;proxapp&#34;</span>)
+
+
+<span style="color:#a6e22e">@app.route</span>(<span style="color:#e6db74">&#39;/&#39;</span>)
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">hello_world</span>() <span style="color:#f92672">-&gt;</span> str:
+    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#39;Hello World!&#39;</span>
+
+
+addons <span style="color:#f92672">=</span> [
+    <span style="color:#75715e"># Host app at the magic domain &#34;example.com&#34; on port 80. Requests to this</span>
+    <span style="color:#75715e"># domain and port combination will now be routed to the WSGI app instance.</span>
+    asgiapp<span style="color:#f92672">.</span>WSGIApp(app, <span style="color:#e6db74">&#34;example.com&#34;</span>, <span style="color:#ae81ff">80</span>)
+    <span style="color:#75715e"># SSL works too, but the magic domain needs to be resolvable from the mitmproxy machine due to mitmproxy&#39;s design.</span>
+    <span style="color:#75715e"># mitmproxy will connect to said domain and use serve its certificate (unless --no-upstream-cert is set)</span>
+    <span style="color:#75715e"># but won&#39;t send any data.</span>
+    <span style="color:#75715e"># mitmproxy.ctx.master.apps.add(app, &#34;example.com&#34;, 443)</span>
+]
+
+</code></pre></div><h2 id="commands-simple"><a class="anchor" href="#commands-simple">#&nbsp;&nbsp;</a>Example: commands-simple.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Add a custom command to mitmproxy&#39;s command prompt.&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> command
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAddon</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+
+    <span style="color:#a6e22e">@command.command</span>(<span style="color:#e6db74">&#34;myaddon.inc&#34;</span>)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inc</span>(self) <span style="color:#f92672">-&gt;</span> None:
+        self<span style="color:#f92672">.</span>num <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+        ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(f<span style="color:#e6db74">&#34;num = {self.num}&#34;</span>)
+
+
+addons <span style="color:#f92672">=</span> [
+    MyAddon()
+]
+
+</code></pre></div><h2 id="io-write-flow-file"><a class="anchor" href="#io-write-flow-file">#&nbsp;&nbsp;</a>Example: io-write-flow-file.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Generate a mitmproxy dump file.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">This script demonstrates how to generate a mitmproxy dump file,
+</span><span style="color:#e6db74">as it would also be generated by passing `-w` to mitmproxy.
+</span><span style="color:#e6db74">In contrast to `-w`, this gives you full control over which
+</span><span style="color:#e6db74">flows should be saved and also allows you to rotate files or log
+</span><span style="color:#e6db74">to multiple files in parallel.
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> random
+<span style="color:#f92672">import</span> sys
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> io, http
+<span style="color:#f92672">import</span> typing  <span style="color:#75715e"># noqa</span>
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Writer</span>:
+    <span style="color:#66d9ef">def</span> __init__(self, path: str) <span style="color:#f92672">-&gt;</span> None:
+        self<span style="color:#f92672">.</span>f: typing<span style="color:#f92672">.</span>IO[bytes] <span style="color:#f92672">=</span> open(path, <span style="color:#e6db74">&#34;wb&#34;</span>)
+        self<span style="color:#f92672">.</span>w <span style="color:#f92672">=</span> io<span style="color:#f92672">.</span>FlowWriter(self<span style="color:#f92672">.</span>f)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">response</span>(self, flow: http<span style="color:#f92672">.</span>HTTPFlow) <span style="color:#f92672">-&gt;</span> None:
+        <span style="color:#66d9ef">if</span> random<span style="color:#f92672">.</span>choice([True, False]):
+            self<span style="color:#f92672">.</span>w<span style="color:#f92672">.</span>add(flow)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">done</span>(self):
+        self<span style="color:#f92672">.</span>f<span style="color:#f92672">.</span>close()
+
+
+addons <span style="color:#f92672">=</span> [Writer(sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>])]
+
+</code></pre></div><h2 id="websocket-simple"><a class="anchor" href="#websocket-simple">#&nbsp;&nbsp;</a>Example: websocket-simple.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Process individual messages from a WebSocket connection.&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> re
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">websocket_message</span>(flow):
+    <span style="color:#75715e"># get the latest message</span>
+    message <span style="color:#f92672">=</span> flow<span style="color:#f92672">.</span>messages[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+
+    <span style="color:#75715e"># was the message sent from the client or server?</span>
+    <span style="color:#66d9ef">if</span> message<span style="color:#f92672">.</span>from_client:
+        ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;Client sent a message: {}&#34;</span><span style="color:#f92672">.</span>format(message<span style="color:#f92672">.</span>content))
+    <span style="color:#66d9ef">else</span>:
+        ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;Server sent a message: {}&#34;</span><span style="color:#f92672">.</span>format(message<span style="color:#f92672">.</span>content))
+
+    <span style="color:#75715e"># manipulate the message content</span>
+    message<span style="color:#f92672">.</span>content <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^Hello&#39;</span>, <span style="color:#e6db74">&#39;HAPPY&#39;</span>, message<span style="color:#f92672">.</span>content)
+
+    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;FOOBAR&#39;</span> <span style="color:#f92672">in</span> message<span style="color:#f92672">.</span>content:
+        <span style="color:#75715e"># kill the message and not send it to the other endpoint</span>
+        message<span style="color:#f92672">.</span>kill()
+
+</code></pre></div><h2 id="http-stream-simple"><a class="anchor" href="#http-stream-simple">#&nbsp;&nbsp;</a>Example: http-stream-simple.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Select which responses should be streamed.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Enable response streaming for all HTTP flows.
+</span><span style="color:#e6db74">This is equivalent to passing `--set stream_large_bodies=1` to mitmproxy.
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">responseheaders</span>(flow):
+    <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">    Enables streaming for all responses.
+</span><span style="color:#e6db74">    This is equivalent to passing `--set stream_large_bodies=1` to mitmproxy.
+</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+    flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>stream <span style="color:#f92672">=</span> True
+
+</code></pre></div><h2 id="websocket-inject-message"><a class="anchor" href="#websocket-inject-message">#&nbsp;&nbsp;</a>Example: websocket-inject-message.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Inject a WebSocket message into a running connection.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">This example shows how to inject a WebSocket message to the client.
+</span><span style="color:#e6db74">Every new WebSocket connection will trigger a new asyncio task that
+</span><span style="color:#e6db74">periodically injects a new message to the client.
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> asyncio
+<span style="color:#f92672">import</span> mitmproxy.websocket
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">InjectWebSocketMessage</span>:
+    async <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">inject</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>websocket<span style="color:#f92672">.</span>WebSocketFlow):
+        i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+        <span style="color:#66d9ef">while</span> <span style="color:#f92672">not</span> flow<span style="color:#f92672">.</span>ended <span style="color:#f92672">and</span> <span style="color:#f92672">not</span> flow<span style="color:#f92672">.</span>error:
+            await asyncio<span style="color:#f92672">.</span>sleep(<span style="color:#ae81ff">5</span>)
+            flow<span style="color:#f92672">.</span>inject_message(flow<span style="color:#f92672">.</span>client_conn, f<span style="color:#e6db74">&#39;This is the #{i} injected message!&#39;</span>)
+            i <span style="color:#f92672">+=</span> <span style="color:#ae81ff">1</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">websocket_start</span>(self, flow):
+        asyncio<span style="color:#f92672">.</span>get_event_loop()<span style="color:#f92672">.</span>create_task(self<span style="color:#f92672">.</span>inject(flow))
+
+
+addons <span style="color:#f92672">=</span> [InjectWebSocketMessage()]
+
+</code></pre></div><h2 id="events-http-specific"><a class="anchor" href="#events-http-specific">#&nbsp;&nbsp;</a>Example: events-http-specific.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;HTTP-specific events.&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> mitmproxy.http
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Events</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">http_connect</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>http<span style="color:#f92672">.</span>HTTPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            An HTTP CONNECT request was received. Setting a non 2xx response on
+</span><span style="color:#e6db74">            the flow will return the response to the client abort the
+</span><span style="color:#e6db74">            connection. CONNECT requests and responses do not generate the usual
+</span><span style="color:#e6db74">            HTTP handler events. CONNECT requests are only valid in regular and
+</span><span style="color:#e6db74">            upstream proxy modes.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">requestheaders</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>http<span style="color:#f92672">.</span>HTTPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            HTTP request headers were successfully read. At this point, the body
+</span><span style="color:#e6db74">            is empty.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>http<span style="color:#f92672">.</span>HTTPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            The full HTTP request has been read.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">responseheaders</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>http<span style="color:#f92672">.</span>HTTPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            HTTP response headers were successfully read. At this point, the body
+</span><span style="color:#e6db74">            is empty.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">response</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>http<span style="color:#f92672">.</span>HTTPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            The full HTTP response has been read.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">error</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>http<span style="color:#f92672">.</span>HTTPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            An HTTP error has occurred, e.g. invalid server responses, or
+</span><span style="color:#e6db74">            interrupted connections. This is distinct from a valid server HTTP
+</span><span style="color:#e6db74">            error response, which is simply a response with an HTTP error code.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+</code></pre></div><h2 id="anatomy"><a class="anchor" href="#anatomy">#&nbsp;&nbsp;</a>Example: anatomy.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Basic skeleton of a mitmproxy addon.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Run as follows: mitmproxy -s anatomy.py
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Counter</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(self, flow):
+        self<span style="color:#f92672">.</span>num <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>num <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;We&#39;ve seen </span><span style="color:#e6db74">%d</span><span style="color:#e6db74"> flows&#34;</span> <span style="color:#f92672">%</span> self<span style="color:#f92672">.</span>num)
+
+
+addons <span style="color:#f92672">=</span> [
+    Counter()
+]
+
+</code></pre></div><h2 id="commands-flows"><a class="anchor" href="#commands-flows">#&nbsp;&nbsp;</a>Example: commands-flows.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Handle flows as command arguments.&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> typing
+
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> command
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> flow
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAddon</span>:
+    <span style="color:#a6e22e">@command.command</span>(<span style="color:#e6db74">&#34;myaddon.addheader&#34;</span>)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">addheader</span>(self, flows: typing<span style="color:#f92672">.</span>Sequence[flow<span style="color:#f92672">.</span>Flow]) <span style="color:#f92672">-&gt;</span> None:
+        <span style="color:#66d9ef">for</span> f <span style="color:#f92672">in</span> flows:
+            f<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;myheader&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;value&#34;</span>
+        ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>alert(<span style="color:#e6db74">&#34;done&#34;</span>)
+
+
+addons <span style="color:#f92672">=</span> [
+    MyAddon()
+]
+
+</code></pre></div><h2 id="commands-paths"><a class="anchor" href="#commands-paths">#&nbsp;&nbsp;</a>Example: commands-paths.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Handle file paths as command arguments.&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> typing
+
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> command
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> flow
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> types
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">MyAddon</span>:
+    <span style="color:#a6e22e">@command.command</span>(<span style="color:#e6db74">&#34;myaddon.histogram&#34;</span>)
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">histogram</span>(
+        self,
+        flows: typing<span style="color:#f92672">.</span>Sequence[flow<span style="color:#f92672">.</span>Flow],
+        path: types<span style="color:#f92672">.</span>Path,
+    ) <span style="color:#f92672">-&gt;</span> None:
+        totals <span style="color:#f92672">=</span> {}
+        <span style="color:#66d9ef">for</span> f <span style="color:#f92672">in</span> flows:
+            totals[f<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>host] <span style="color:#f92672">=</span> totals<span style="color:#f92672">.</span>setdefault(f<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>host, <span style="color:#ae81ff">0</span>) <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+
+        <span style="color:#66d9ef">with</span> open(path, <span style="color:#e6db74">&#34;w+&#34;</span>) <span style="color:#66d9ef">as</span> fp:
+            <span style="color:#66d9ef">for</span> cnt, dom <span style="color:#f92672">in</span> sorted([(v, k) <span style="color:#66d9ef">for</span> (k, v) <span style="color:#f92672">in</span> totals<span style="color:#f92672">.</span>items()]):
+                fp<span style="color:#f92672">.</span>write(<span style="color:#e6db74">&#34;</span><span style="color:#e6db74">%s</span><span style="color:#e6db74">: </span><span style="color:#e6db74">%s</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span> <span style="color:#f92672">%</span> (cnt, dom))
+
+        ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>alert(<span style="color:#e6db74">&#34;done&#34;</span>)
+
+
+addons <span style="color:#f92672">=</span> [
+    MyAddon()
+]
+
+</code></pre></div><h2 id="tcp-simple"><a class="anchor" href="#tcp-simple">#&nbsp;&nbsp;</a>Example: tcp-simple.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Process individual messages from a TCP connection.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">This script replaces full occurences of &#34;foo&#34; with &#34;bar&#34; and prints various details for each message.
+</span><span style="color:#e6db74">Please note that TCP is stream-based and *not* message-based. mitmproxy splits stream contents into &#34;messages&#34;
+</span><span style="color:#e6db74">as they are received by socket.recv(). This is pretty arbitrary and should not be relied on.
+</span><span style="color:#e6db74">However, it is sometimes good enough as a quick hack.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Example Invocation:
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    mitmdump --rawtcp --tcp-hosts &#34;.*&#34; -s examples/tcp-simple.py
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy.utils <span style="color:#f92672">import</span> strutils
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> tcp
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tcp_message</span>(flow: tcp<span style="color:#f92672">.</span>TCPFlow):
+    message <span style="color:#f92672">=</span> flow<span style="color:#f92672">.</span>messages[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+    message<span style="color:#f92672">.</span>content <span style="color:#f92672">=</span> message<span style="color:#f92672">.</span>content<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;bar&#34;</span>)
+
+    ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(
+        f<span style="color:#e6db74">&#34;tcp_message[from_client={message.from_client}), content={strutils.bytes_to_escaped_str(message.content)}]&#34;</span>
+    )
+
+</code></pre></div><h2 id="options-configure"><a class="anchor" href="#options-configure">#&nbsp;&nbsp;</a>Example: options-configure.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;React to configuration changes.&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> typing
+
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> exceptions
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AddHeader</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">load</span>(self, loader):
+        loader<span style="color:#f92672">.</span>add_option(
+            name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;addheader&#34;</span>,
+            typespec <span style="color:#f92672">=</span> typing<span style="color:#f92672">.</span>Optional[int],
+            default <span style="color:#f92672">=</span> None,
+            help <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Add a header to responses&#34;</span>,
+        )
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">configure</span>(self, updates):
+        <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#34;addheader&#34;</span> <span style="color:#f92672">in</span> updates:
+            <span style="color:#66d9ef">if</span> ctx<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>addheader <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None <span style="color:#f92672">and</span> ctx<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>addheader <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">100</span>:
+                <span style="color:#66d9ef">raise</span> exceptions<span style="color:#f92672">.</span>OptionsError(<span style="color:#e6db74">&#34;addheader must be &lt;= 100&#34;</span>)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">response</span>(self, flow):
+        <span style="color:#66d9ef">if</span> ctx<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>addheader <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> None:
+            flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;addheader&#34;</span>] <span style="color:#f92672">=</span> str(ctx<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>addheader)
+
+
+addons <span style="color:#f92672">=</span> [
+    AddHeader()
+]
+
+</code></pre></div><h2 id="io-read-saved-flows"><a class="anchor" href="#io-read-saved-flows">#&nbsp;&nbsp;</a>Example: io-read-saved-flows.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e">#!/usr/bin/env python</span>
+<span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Read a mitmproxy dump file.
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> io
+<span style="color:#f92672">from</span> mitmproxy.exceptions <span style="color:#f92672">import</span> FlowReadException
+<span style="color:#f92672">import</span> pprint
+<span style="color:#f92672">import</span> sys
+
+<span style="color:#66d9ef">with</span> open(sys<span style="color:#f92672">.</span>argv[<span style="color:#ae81ff">1</span>], <span style="color:#e6db74">&#34;rb&#34;</span>) <span style="color:#66d9ef">as</span> logfile:
+    freader <span style="color:#f92672">=</span> io<span style="color:#f92672">.</span>FlowReader(logfile)
+    pp <span style="color:#f92672">=</span> pprint<span style="color:#f92672">.</span>PrettyPrinter(indent<span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>)
+    <span style="color:#66d9ef">try</span>:
+        <span style="color:#66d9ef">for</span> f <span style="color:#f92672">in</span> freader<span style="color:#f92672">.</span>stream():
+            <span style="color:#66d9ef">print</span>(f)
+            <span style="color:#66d9ef">print</span>(f<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>host)
+            pp<span style="color:#f92672">.</span>pprint(f<span style="color:#f92672">.</span>get_state())
+            <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;&#34;</span>)
+    <span style="color:#66d9ef">except</span> FlowReadException <span style="color:#66d9ef">as</span> e:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Flow file corrupted: {}&#34;</span><span style="color:#f92672">.</span>format(e))
+
+</code></pre></div><h2 id="http-stream-modify"><a class="anchor" href="#http-stream-modify">#&nbsp;&nbsp;</a>Example: http-stream-modify.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Modify a streamed response.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Generally speaking, we recommend *not* to stream messages you need to modify.
+</span><span style="color:#e6db74">Modifying streamed responses is tricky and brittle:
+</span><span style="color:#e6db74">    - If the transfer encoding isn&#39;t chunked, you cannot simply change the content length.
+</span><span style="color:#e6db74">    - If you want to replace all occurrences of &#34;foobar&#34;, make sure to catch the cases
+</span><span style="color:#e6db74">      where one chunk ends with [...]foo&#34; and the next starts with &#34;bar[...].
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">modify</span>(chunks):
+    <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">    chunks is a generator that can be used to iterate over all chunks.
+</span><span style="color:#e6db74">    &#34;&#34;&#34;</span>
+    <span style="color:#66d9ef">for</span> chunk <span style="color:#f92672">in</span> chunks:
+        <span style="color:#66d9ef">yield</span> chunk<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>)
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">responseheaders</span>(flow):
+    flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>stream <span style="color:#f92672">=</span> modify
+
+</code></pre></div><h2 id="http-modify-query-string"><a class="anchor" href="#http-modify-query-string">#&nbsp;&nbsp;</a>Example: http-modify-query-string.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Modify HTTP query parameters.&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> http
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(flow: http<span style="color:#f92672">.</span>HTTPFlow) <span style="color:#f92672">-&gt;</span> None:
+    flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>query[<span style="color:#e6db74">&#34;mitmproxy&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rocks&#34;</span>
+
+</code></pre></div><h2 id="contentview"><a class="anchor" href="#contentview">#&nbsp;&nbsp;</a>Example: contentview.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Add a custom message body pretty-printer for use inside mitmproxy.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">This example shows how one can add a custom contentview to mitmproxy,
+</span><span style="color:#e6db74">which is used to pretty-print HTTP bodies for example.
+</span><span style="color:#e6db74">The content view API is explained in the mitmproxy.contentviews module.
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> contentviews
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">ViewSwapCase</span>(contentviews<span style="color:#f92672">.</span>View):
+    name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;swapcase&#34;</span>
+    content_types <span style="color:#f92672">=</span> [<span style="color:#e6db74">&#34;text/plain&#34;</span>]
+
+    <span style="color:#66d9ef">def</span> __call__(self, data, <span style="color:#f92672">**</span>metadata) <span style="color:#f92672">-&gt;</span> contentviews<span style="color:#f92672">.</span>TViewResult:
+        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;case-swapped text&#34;</span>, contentviews<span style="color:#f92672">.</span>format_text(data<span style="color:#f92672">.</span>swapcase())
+
+
+view <span style="color:#f92672">=</span> ViewSwapCase()
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">load</span>(l):
+    contentviews<span style="color:#f92672">.</span>add(view)
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">done</span>():
+    contentviews<span style="color:#f92672">.</span>remove(view)
+
+</code></pre></div><h2 id="http-trailers"><a class="anchor" href="#http-trailers">#&nbsp;&nbsp;</a>Example: http-trailers.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">This script simply prints all received HTTP Trailers.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">HTTP requests and responses can container trailing headers which are sent after
+</span><span style="color:#e6db74">the body is fully transmitted. Such trailers need to be announced in the initial
+</span><span style="color:#e6db74">headers by name, so the receiving endpoint can wait and read them after the
+</span><span style="color:#e6db74">body.
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> http
+<span style="color:#f92672">from</span> mitmproxy.net.http <span style="color:#f92672">import</span> Headers
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(flow: http<span style="color:#f92672">.</span>HTTPFlow):
+    <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>trailers:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;HTTP Trailers detected! Request contains:&#34;</span>, flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>trailers)
+
+    <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/inject_trailers&#34;</span>:
+        <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>is_http10:
+            <span style="color:#75715e"># HTTP/1.0 doesn&#39;t support trailers</span>
+            <span style="color:#66d9ef">return</span>
+        <span style="color:#66d9ef">elif</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>is_http11:
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>content:
+                <span style="color:#75715e"># Avoid sending a body on GET requests or a 0 byte chunked body with trailers.</span>
+                <span style="color:#75715e"># Otherwise some servers return 400 Bad Request.</span>
+                <span style="color:#66d9ef">return</span>
+            <span style="color:#75715e"># HTTP 1.1 requires transfer-encoding: chunked to send trailers</span>
+            flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;transfer-encoding&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;chunked&#34;</span>
+        <span style="color:#75715e"># HTTP 2+ supports trailers on all requests/responses</span>
+
+        flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;trailer&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x-my-injected-trailer-header&#34;</span>
+        flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>trailers <span style="color:#f92672">=</span> Headers([
+            (<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;x-my-injected-trailer-header&#34;</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;foobar&#34;</span>)
+        ])
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Injected a new request trailer...&#34;</span>, flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;trailer&#34;</span>])
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">response</span>(flow: http<span style="color:#f92672">.</span>HTTPFlow):
+    <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>trailers:
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;HTTP Trailers detected! Response contains:&#34;</span>, flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>trailers)
+
+    <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>path <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;/inject_trailers&#34;</span>:
+        <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>is_http10:
+            <span style="color:#66d9ef">return</span>
+        <span style="color:#66d9ef">elif</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>is_http11:
+            <span style="color:#66d9ef">if</span> <span style="color:#f92672">not</span> flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>content:
+                <span style="color:#66d9ef">return</span>
+            flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;transfer-encoding&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;chunked&#34;</span>
+
+        flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;trailer&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;x-my-injected-trailer-header&#34;</span>
+        flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>trailers <span style="color:#f92672">=</span> Headers([
+            (<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;x-my-injected-trailer-header&#34;</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;foobar&#34;</span>)
+        ])
+        <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Injected a new response trailer...&#34;</span>, flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;trailer&#34;</span>])
+
+</code></pre></div><h2 id="scripting-minimal-example"><a class="anchor" href="#scripting-minimal-example">#&nbsp;&nbsp;</a>Example: scripting-minimal-example.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(flow):
+    flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;myheader&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;value&#34;</span>
+
+</code></pre></div><h2 id="filter-flows"><a class="anchor" href="#filter-flows">#&nbsp;&nbsp;</a>Example: filter-flows.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Use mitmproxy&#39;s filter pattern in scripts.
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> flowfilter
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx, http
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Filter</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>filter: flowfilter<span style="color:#f92672">.</span>TFilter <span style="color:#f92672">=</span> None
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">configure</span>(self, updated):
+        self<span style="color:#f92672">.</span>filter <span style="color:#f92672">=</span> flowfilter<span style="color:#f92672">.</span>parse(ctx<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>flowfilter)
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">load</span>(self, l):
+        l<span style="color:#f92672">.</span>add_option(
+            <span style="color:#e6db74">&#34;flowfilter&#34;</span>, str, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;Check that flow matches filter.&#34;</span>
+        )
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">response</span>(self, flow: http<span style="color:#f92672">.</span>HTTPFlow) <span style="color:#f92672">-&gt;</span> None:
+        <span style="color:#66d9ef">if</span> flowfilter<span style="color:#f92672">.</span>match(self<span style="color:#f92672">.</span>filter, flow):
+            ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;Flow matches filter:&#34;</span>)
+            ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(flow)
+
+
+addons <span style="color:#f92672">=</span> [Filter()]
+
+</code></pre></div><h2 id="events-tcp-specific"><a class="anchor" href="#events-tcp-specific">#&nbsp;&nbsp;</a>Example: events-tcp-specific.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;TCP-specific events.&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> mitmproxy.tcp
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Events</span>:
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tcp_start</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>tcp<span style="color:#f92672">.</span>TCPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            A TCP connection has started.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tcp_message</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>tcp<span style="color:#f92672">.</span>TCPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            A TCP connection has received a message. The most recent message
+</span><span style="color:#e6db74">            will be flow.messages[-1]. The message is user-modifiable.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tcp_error</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>tcp<span style="color:#f92672">.</span>TCPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            A TCP error has occurred.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tcp_end</span>(self, flow: mitmproxy<span style="color:#f92672">.</span>tcp<span style="color:#f92672">.</span>TCPFlow):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            A TCP connection has ended.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+</code></pre></div><h2 id="http-redirect-requests"><a class="anchor" href="#http-redirect-requests">#&nbsp;&nbsp;</a>Example: http-redirect-requests.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Redirect HTTP requests to another server.&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> http
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(flow: http<span style="color:#f92672">.</span>HTTPFlow) <span style="color:#f92672">-&gt;</span> None:
+    <span style="color:#75715e"># pretty_host takes the &#34;Host&#34; header of the request into account,</span>
+    <span style="color:#75715e"># which is useful in transparent mode where we usually only have the IP</span>
+    <span style="color:#75715e"># otherwise.</span>
+    <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>pretty_host <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;example.org&#34;</span>:
+        flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>host <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;mitmproxy.org&#34;</span>
+
+</code></pre></div><h2 id="http-modify-form"><a class="anchor" href="#http-modify-form">#&nbsp;&nbsp;</a>Example: http-modify-form.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Modify an HTTP form submission.&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> http
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(flow: http<span style="color:#f92672">.</span>HTTPFlow) <span style="color:#f92672">-&gt;</span> None:
+    <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>urlencoded_form:
+        <span style="color:#75715e"># If there&#39;s already a form, one can just add items to the dict:</span>
+        flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>urlencoded_form[<span style="color:#e6db74">&#34;mitmproxy&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;rocks&#34;</span>
+    <span style="color:#66d9ef">else</span>:
+        <span style="color:#75715e"># One can also just pass new form data.</span>
+        <span style="color:#75715e"># This sets the proper content type and overrides the body.</span>
+        flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>urlencoded_form <span style="color:#f92672">=</span> [
+            (<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>)
+        ]
+
+</code></pre></div><h2 id="events"><a class="anchor" href="#events">#&nbsp;&nbsp;</a>Example: events.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Generic event hooks.&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> typing
+
+<span style="color:#f92672">import</span> mitmproxy.addonmanager
+<span style="color:#f92672">import</span> mitmproxy.connections
+<span style="color:#f92672">import</span> mitmproxy.log
+<span style="color:#f92672">import</span> mitmproxy.proxy.protocol
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Events</span>:
+    <span style="color:#75715e"># Network lifecycle</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">clientconnect</span>(self, layer: mitmproxy<span style="color:#f92672">.</span>proxy<span style="color:#f92672">.</span>protocol<span style="color:#f92672">.</span>Layer):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            A client has connected to mitmproxy. Note that a connection can
+</span><span style="color:#e6db74">            correspond to multiple HTTP requests.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">clientdisconnect</span>(self, layer: mitmproxy<span style="color:#f92672">.</span>proxy<span style="color:#f92672">.</span>protocol<span style="color:#f92672">.</span>Layer):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            A client has disconnected from mitmproxy.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">serverconnect</span>(self, conn: mitmproxy<span style="color:#f92672">.</span>connections<span style="color:#f92672">.</span>ServerConnection):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Mitmproxy has connected to a server. Note that a connection can
+</span><span style="color:#e6db74">            correspond to multiple requests.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">serverdisconnect</span>(self, conn: mitmproxy<span style="color:#f92672">.</span>connections<span style="color:#f92672">.</span>ServerConnection):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Mitmproxy has disconnected from a server.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">next_layer</span>(self, layer: mitmproxy<span style="color:#f92672">.</span>proxy<span style="color:#f92672">.</span>protocol<span style="color:#f92672">.</span>Layer):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Network layers are being switched. You may change which layer will
+</span><span style="color:#e6db74">            be used by returning a new layer object from this event.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#75715e"># General lifecycle</span>
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">configure</span>(self, updated: typing<span style="color:#f92672">.</span>Set[str]):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Called when configuration changes. The updated argument is a
+</span><span style="color:#e6db74">            set-like object containing the keys of all changed options. This
+</span><span style="color:#e6db74">            event is called during startup with all options in the updated set.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">done</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Called when the addon shuts down, either by being removed from
+</span><span style="color:#e6db74">            the mitmproxy instance, or when mitmproxy itself shuts down. On
+</span><span style="color:#e6db74">            shutdown, this event is called after the event loop is
+</span><span style="color:#e6db74">            terminated, guaranteeing that it will be the final event an addon
+</span><span style="color:#e6db74">            sees. Note that log handlers are shut down at this point, so
+</span><span style="color:#e6db74">            calls to log functions will produce no output.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">load</span>(self, entry: mitmproxy<span style="color:#f92672">.</span>addonmanager<span style="color:#f92672">.</span>Loader):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Called when an addon is first loaded. This event receives a Loader
+</span><span style="color:#e6db74">            object, which contains methods for adding options and commands. This
+</span><span style="color:#e6db74">            method is where the addon configures itself.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">log</span>(self, entry: mitmproxy<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>LogEntry):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Called whenever a new log entry is created through the mitmproxy
+</span><span style="color:#e6db74">            context. Be careful not to log from this event, which will cause an
+</span><span style="color:#e6db74">            infinite loop!
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">running</span>(self):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Called when the proxy is completely up and running. At this point,
+</span><span style="color:#e6db74">            you can expect the proxy to be bound to a port, and all addons to be
+</span><span style="color:#e6db74">            loaded.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">update</span>(self, flows: typing<span style="color:#f92672">.</span>Sequence[mitmproxy<span style="color:#f92672">.</span>flow<span style="color:#f92672">.</span>Flow]):
+        <span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">            Update is called when one or more flow objects have been modified,
+</span><span style="color:#e6db74">            usually from a different addon.
+</span><span style="color:#e6db74">        &#34;&#34;&#34;</span>
+
+</code></pre></div><h2 id="options-simple"><a class="anchor" href="#options-simple">#&nbsp;&nbsp;</a>Example: options-simple.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Add a new mitmproxy option.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Usage:
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    mitmproxy -s options-simple.py --set addheader true
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AddHeader</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">load</span>(self, loader):
+        loader<span style="color:#f92672">.</span>add_option(
+            name <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;addheader&#34;</span>,
+            typespec <span style="color:#f92672">=</span> bool,
+            default <span style="color:#f92672">=</span> False,
+            help <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Add a count header to responses&#34;</span>,
+        )
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">response</span>(self, flow):
+        <span style="color:#66d9ef">if</span> ctx<span style="color:#f92672">.</span>options<span style="color:#f92672">.</span>addheader:
+            self<span style="color:#f92672">.</span>num <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>num <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+            flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;count&#34;</span>] <span style="color:#f92672">=</span> str(self<span style="color:#f92672">.</span>num)
+
+
+addons <span style="color:#f92672">=</span> [
+    AddHeader()
+]
+
+</code></pre></div><h2 id="internet-in-mirror"><a class="anchor" href="#internet-in-mirror">#&nbsp;&nbsp;</a>Example: internet_in_mirror.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Mirror all web pages.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Useful if you are living down under.
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> http
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">response</span>(flow: http<span style="color:#f92672">.</span>HTTPFlow) <span style="color:#f92672">-&gt;</span> None:
+    reflector <span style="color:#f92672">=</span> <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&lt;style&gt;body {transform: scaleX(-1);}&lt;/style&gt;&lt;/head&gt;&#34;</span>
+    flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>content <span style="color:#f92672">=</span> flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>content<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;&lt;/head&gt;&#34;</span>, reflector)
+
+</code></pre></div><h2 id="http-add-header"><a class="anchor" href="#http-add-header">#&nbsp;&nbsp;</a>Example: http-add-header.py</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#e6db74">&#34;&#34;&#34;Add an HTTP header to each response.&#34;&#34;&#34;</span>
+
+
+<span style="color:#66d9ef">class</span> <span style="color:#a6e22e">AddHeader</span>:
+    <span style="color:#66d9ef">def</span> __init__(self):
+        self<span style="color:#f92672">.</span>num <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+
+    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">response</span>(self, flow):
+        self<span style="color:#f92672">.</span>num <span style="color:#f92672">=</span> self<span style="color:#f92672">.</span>num <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>
+        flow<span style="color:#f92672">.</span>response<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;count&#34;</span>] <span style="color:#f92672">=</span> str(self<span style="color:#f92672">.</span>num)
+
+
+addons <span style="color:#f92672">=</span> [
+    AddHeader()
+]
+
+</code></pre></div>
+
+
+    </div>
+</div>
+</body>
+</html>
+

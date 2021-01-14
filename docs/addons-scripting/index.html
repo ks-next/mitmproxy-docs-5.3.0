@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <title>Scripting</title>
+    
+    
+
+    
+    <link rel="stylesheet" href="../style.min.css">
+
+    
+
+    <meta name="generator" content="Hugo 0.68.3" />
+</head>
+<body>
+
+<div class="columns container is-marginless">
+    <div id="sidebar" class="column is-one-quarter">
+        <div class="brand">
+    <a href="https://mitmproxy.org/">
+        <img src='../logo-docs.png' alt="mitmproxy docs"/>
+    </a>
+
+</div>
+<nav class="menu">
+    <p class="menu-label">Overview</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../">Introduction</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-installation/">Installation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-getting-started/">Getting Started</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Beginner Tutorial</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-userinterface/">User Interface</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-interceptrequests/">Intercept Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-modifyrequests/">Modify Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-replayrequests/">Replay Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-whatsnext/">What&#39;s Next</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Core concepts</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../concepts-howmitmproxyworks/">How mitmproxy works</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-modes/">Modes of operation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-certificates/">Certificates</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-features/">Features</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-filters/">Filter expressions</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-protocols/">Protocols</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Addon Development </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../addons-overview/">Addons</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-events/">Events</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class="is-active"
+                href="../addons-scripting/">Scripting</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-examples/">Example Addons</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> HOWTOs </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../howto-kubernetes/">Kubernetes Services</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent/">Transparent Proxying</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-wireshark-tls/">Wireshark and SSL/TLS</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-ignoredomains/">Ignoring Domains</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent-vms/">Transparently Proxying VMs</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-install-system-trusted-ca-android/">Install System CA on Android</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Tutorials </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../tute-clientreplay/">Client replay</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../tute-highscores/">Setting highscores on Apple GameCenter</a>
+        </li>
+    
+</ul>
+</nav>
+
+    </div>
+    <div id="main" class="column content">
+        
+        
+<a class="button is-small is-outlined is-link is-pulled-right"
+   target="_blank"
+   href="https://github.com/mitmproxy/mitmproxy/blob/master/docs/src/content/addons-scripting.md"
+>
+    Edit on GitHub
+</a>
+
+
+
+        <h1 id="scripting-http11-and-http20"><a class="anchor" href="#scripting-http11-and-http20">#&nbsp;&nbsp;</a>Scripting HTTP/1.1 and HTTP/2.0</h1>
+<p>Sometimes, we would like to write a quick script without going through the
+trouble of creating a class. The addons mechanism has a shorthand that allows a
+module as a whole to be treated as an addon object. This lets us place event
+handler functions in the module scope. For instance, here is a complete script
+that adds a header to every request.</p>
+<div class="example">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(flow):
+    flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>headers[<span style="color:#e6db74">&#34;myheader&#34;</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;value&#34;</span></code></pre></div>
+<div class="path">examples/addons/scripting-minimal-example.py</div>
+</div>
+
+<p>Here&rsquo;s another example that intercepts requests to a particular URL and sends
+an arbitrary response instead:</p>
+<div class="example">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#e6db74">&#34;&#34;&#34;Send a reply from the proxy without sending any data to the remote server.&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> http
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">request</span>(flow: http<span style="color:#f92672">.</span>HTTPFlow) <span style="color:#f92672">-&gt;</span> None:
+    <span style="color:#66d9ef">if</span> flow<span style="color:#f92672">.</span>request<span style="color:#f92672">.</span>pretty_url <span style="color:#f92672">==</span> <span style="color:#e6db74">&#34;http://example.com/path&#34;</span>:
+        flow<span style="color:#f92672">.</span>response <span style="color:#f92672">=</span> http<span style="color:#f92672">.</span>HTTPResponse<span style="color:#f92672">.</span>make(
+            <span style="color:#ae81ff">200</span>,  <span style="color:#75715e"># (optional) status code</span>
+            <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;Hello World&#34;</span>,  <span style="color:#75715e"># (optional) content</span>
+            {<span style="color:#e6db74">&#34;Content-Type&#34;</span>: <span style="color:#e6db74">&#34;text/html&#34;</span>}  <span style="color:#75715e"># (optional) headers</span>
+        )</code></pre></div>
+<div class="path">examples/addons/http-reply-from-proxy.py</div>
+</div>
+
+<p>All events around the HTTP protocol <a href="../addons-events/#http-events">can be found here</a>.</p>
+<p>For HTTP-related objects, please look at the [http][] module, or the
+[Request][], and [Response][] classes for other attributes that you can use when
+scripting.</p>
+<h1 id="scripting-websocket"><a class="anchor" href="#scripting-websocket">#&nbsp;&nbsp;</a>Scripting WebSocket</h1>
+<p>The WebSocket protocol initially looks like a regular HTTP request, before the client and server agree to upgrade the connection to WebSocket. All scripting events for initial HTTP handshake, and also the dedicated WebSocket events <a href="../addons-events/#websocket-events">can be found here</a>.</p>
+<div class="example">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#e6db74">&#34;&#34;&#34;Process individual messages from a WebSocket connection.&#34;&#34;&#34;</span>
+<span style="color:#f92672">import</span> re
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">websocket_message</span>(flow):
+    <span style="color:#75715e"># get the latest message</span>
+    message <span style="color:#f92672">=</span> flow<span style="color:#f92672">.</span>messages[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+
+    <span style="color:#75715e"># was the message sent from the client or server?</span>
+    <span style="color:#66d9ef">if</span> message<span style="color:#f92672">.</span>from_client:
+        ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;Client sent a message: {}&#34;</span><span style="color:#f92672">.</span>format(message<span style="color:#f92672">.</span>content))
+    <span style="color:#66d9ef">else</span>:
+        ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(<span style="color:#e6db74">&#34;Server sent a message: {}&#34;</span><span style="color:#f92672">.</span>format(message<span style="color:#f92672">.</span>content))
+
+    <span style="color:#75715e"># manipulate the message content</span>
+    message<span style="color:#f92672">.</span>content <span style="color:#f92672">=</span> re<span style="color:#f92672">.</span>sub(<span style="color:#e6db74">r</span><span style="color:#e6db74">&#39;^Hello&#39;</span>, <span style="color:#e6db74">&#39;HAPPY&#39;</span>, message<span style="color:#f92672">.</span>content)
+
+    <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;FOOBAR&#39;</span> <span style="color:#f92672">in</span> message<span style="color:#f92672">.</span>content:
+        <span style="color:#75715e"># kill the message and not send it to the other endpoint</span>
+        message<span style="color:#f92672">.</span>kill()</code></pre></div>
+<div class="path">examples/addons/websocket-simple.py</div>
+</div>
+
+<p>For WebSocket-related objects please look at the <a href="https://github.com/mitmproxy/mitmproxy/blob/master/mitmproxy/websocket.py">websocket</a> module to find
+all attributes that you can use when scripting.</p>
+<h1 id="scripting-tcp"><a class="anchor" href="#scripting-tcp">#&nbsp;&nbsp;</a>Scripting TCP</h1>
+<p>All events around the TCP protocol <a href="../addons-events/#tcp-events">can be found here</a>.</p>
+<div class="example">
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-py" data-lang="py"><span style="color:#e6db74">&#34;&#34;&#34;
+</span><span style="color:#e6db74">Process individual messages from a TCP connection.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">This script replaces full occurences of &#34;foo&#34; with &#34;bar&#34; and prints various details for each message.
+</span><span style="color:#e6db74">Please note that TCP is stream-based and *not* message-based. mitmproxy splits stream contents into &#34;messages&#34;
+</span><span style="color:#e6db74">as they are received by socket.recv(). This is pretty arbitrary and should not be relied on.
+</span><span style="color:#e6db74">However, it is sometimes good enough as a quick hack.
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">Example Invocation:
+</span><span style="color:#e6db74">
+</span><span style="color:#e6db74">    mitmdump --rawtcp --tcp-hosts &#34;.*&#34; -s examples/tcp-simple.py
+</span><span style="color:#e6db74">&#34;&#34;&#34;</span>
+<span style="color:#f92672">from</span> mitmproxy.utils <span style="color:#f92672">import</span> strutils
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> ctx
+<span style="color:#f92672">from</span> mitmproxy <span style="color:#f92672">import</span> tcp
+
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">tcp_message</span>(flow: tcp<span style="color:#f92672">.</span>TCPFlow):
+    message <span style="color:#f92672">=</span> flow<span style="color:#f92672">.</span>messages[<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
+    message<span style="color:#f92672">.</span>content <span style="color:#f92672">=</span> message<span style="color:#f92672">.</span>content<span style="color:#f92672">.</span>replace(<span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">b</span><span style="color:#e6db74">&#34;bar&#34;</span>)
+
+    ctx<span style="color:#f92672">.</span>log<span style="color:#f92672">.</span>info(
+        f<span style="color:#e6db74">&#34;tcp_message[from_client={message.from_client}), content={strutils.bytes_to_escaped_str(message.content)}]&#34;</span>
+    )</code></pre></div>
+<div class="path">examples/addons/tcp-simple.py</div>
+</div>
+
+<p>For WebSocket-related objects please look at the <a href="https://github.com/mitmproxy/mitmproxy/blob/master/mitmproxy/tcp.py">tcp</a> module to find
+all attributes that you can use when scripting.</p>
+
+
+    </div>
+</div>
+</body>
+</html>
+

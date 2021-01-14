@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <title>Replay Requests</title>
+    
+    
+
+    
+    <link rel="stylesheet" href="../style.min.css">
+
+    
+        <link rel="stylesheet" href="../asciinema-player.min.35765988cd8cec84f5359961847468f8edf73cd0cf76c7c5df611eb925b229fb.css" integrity="sha256-NXZZiM2M7IT1NZlhhHRo&#43;O33PNDPdsfF32EeuSWyKfs=" media="screen">
+        <script src="../asciinema-player.min.31b816eb40dd68ec64b697c2f87018a94a875c7c88a372689ba7d07e691e7e8d.js" integrity="sha256-MbgW60DdaOxktpfC&#43;HAYqUqHXHyIo3Jom6fQfmkefo0="></script>
+        <script src="../asciinema-tutorial.min.523d11b10958c52753bfe427fd7a6cea2a73332d73497032ffd8fb2319d3cf5d.js" integrity="sha256-Uj0RsQlYxSdTv&#43;Qn/Xps6ipzMy1zSXAy/9j7IxnTz10="></script>
+    
+
+    <meta name="generator" content="Hugo 0.68.3" />
+</head>
+<body>
+
+<div class="columns container is-marginless">
+    <div id="sidebar" class="column is-one-quarter">
+        <div class="brand">
+    <a href="https://mitmproxy.org/">
+        <img src='../logo-docs.png' alt="mitmproxy docs"/>
+    </a>
+
+</div>
+<nav class="menu">
+    <p class="menu-label">Overview</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../">Introduction</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-installation/">Installation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-getting-started/">Getting Started</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Beginner Tutorial</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-userinterface/">User Interface</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-interceptrequests/">Intercept Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-modifyrequests/">Modify Requests</a>
+        </li>
+    
+        <li >
+            <a class="is-active"
+                href="../mitmproxytutorial-replayrequests/">Replay Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-whatsnext/">What&#39;s Next</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Core concepts</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../concepts-howmitmproxyworks/">How mitmproxy works</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-modes/">Modes of operation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-certificates/">Certificates</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-features/">Features</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-filters/">Filter expressions</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-protocols/">Protocols</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Addon Development </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../addons-overview/">Addons</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-events/">Events</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-scripting/">Scripting</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-examples/">Example Addons</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> HOWTOs </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../howto-kubernetes/">Kubernetes Services</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent/">Transparent Proxying</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-wireshark-tls/">Wireshark and SSL/TLS</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-ignoredomains/">Ignoring Domains</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent-vms/">Transparently Proxying VMs</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-install-system-trusted-ca-android/">Install System CA on Android</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Tutorials </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../tute-clientreplay/">Client replay</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../tute-highscores/">Setting highscores on Apple GameCenter</a>
+        </li>
+    
+</ul>
+</nav>
+
+    </div>
+    <div id="main" class="column content">
+        
+        
+<a class="button is-small is-outlined is-link is-pulled-right"
+   target="_blank"
+   href="https://github.com/mitmproxy/mitmproxy/blob/master/docs/src/content/mitmproxytutorial-replayrequests.md"
+>
+    Edit on GitHub
+</a>
+
+
+
+        <h1 id="replay-requests"><a class="anchor" href="#replay-requests">#&nbsp;&nbsp;</a>Replay Requests</h1>
+<p>Another powerful feature of mitmproxy is replaying previous flows.
+Two types of replays are supported:</p>
+<ul>
+<li><strong>Client-side Replay:</strong> mitmproxy replays previous client requests, i.e., sends the same request to the server again.</li>
+<li><strong>Server-side Replay:</strong> mitmproxy replays server responses for requests that match an earlier recorded request.</li>
+</ul>
+<p>In this tutorial we focus on the more common use case of client-side replays.
+See the docs for more info on <a href="../overview-features/#server-side-replay">server-side replay</a>.</p>
+<div class="asciicast-wrapper">
+    <asciinema-player id="asciinema-player" src="../recordings/mitmproxy_replay_requests.cast" font-size="13px" poster="npt:0:3" preload></asciinema-player>
+        <article class="panel">
+            <p class="panel-heading">
+                Video Content
+            </p><a href="#" class="panel-block" data-from="0" data-to="6.2">
+                    <span class="instruction-text"><ol>
+<li>Welcome to the mitmproxy tutorial. In this lesson we cover replaying requests.</li>
+</ol></span>
+                    <span class="tag is-light">00:00</span>
+                </a><a href="#" class="panel-block" data-from="15.4" data-to="22">
+                    <span class="instruction-text"><ol start="2">
+<li>Let’s generate a request that we can replay. We use <code>curl</code> in a separate terminal.</li>
+</ol></span>
+                    <span class="tag is-light">00:15</span>
+                </a><a href="#" class="panel-block" data-from="43.8" data-to="46.9">
+                    <span class="instruction-text"><ol start="3">
+<li>We now want to replay the this request.</li>
+</ol></span>
+                    <span class="tag is-light">00:43</span>
+                </a><a href="#" class="panel-block" data-from="47.4" data-to="55.5">
+                    <span class="instruction-text"><ol start="4">
+<li>Put the focus (<code>&gt;&gt;</code>) on the request that should be replayed. This is already the case in our example.</li>
+</ol></span>
+                    <span class="tag is-light">00:47</span>
+                </a><a href="#" class="panel-block" data-from="56" data-to="58.6">
+                    <span class="instruction-text"><ol start="5">
+<li>Press <code>r</code> to replay the request.</li>
+</ol></span>
+                    <span class="tag is-light">00:56</span>
+                </a><a href="#" class="panel-block" data-from="59.2" data-to="65.9">
+                    <span class="instruction-text"><ol start="6">
+<li>Note that no new rows are added for replayed flows, but the existing row is updated.</li>
+</ol></span>
+                    <span class="tag is-light">00:59</span>
+                </a><a href="#" class="panel-block" data-from="66.5" data-to="74.2">
+                    <span class="instruction-text"><ol start="7">
+<li>Every time you press <code>r</code>, mitmproxy sends this request to the server again and updates the flow.</li>
+</ol></span>
+                    <span class="tag is-light">01:06</span>
+                </a><a href="#" class="panel-block" data-from="80.7" data-to="84.5">
+                    <span class="instruction-text"><ol start="8">
+<li>You can also modify a flow before replaying it.</li>
+</ol></span>
+                    <span class="tag is-light">01:20</span>
+                </a><a href="#" class="panel-block" data-from="85" data-to="89.6">
+                    <span class="instruction-text"><ol start="9">
+<li>It works as shown in the previous lesson, by pressing <code>e</code>.</li>
+</ol></span>
+                    <span class="tag is-light">01:25</span>
+                </a><a href="#" class="panel-block" data-from="90.1" data-to="96">
+                    <span class="instruction-text"><ol start="10">
+<li>Congratulations! You have completed all lessons of the mitmproxy tutorial.</li>
+</ol></span>
+                    <span class="tag is-light">01:30</span>
+                </a></article></div>
+<p>You are almost done with this tutorial. In the last step you find more mitmproxy-related resources to discover.</p>
+
+
+    </div>
+</div>
+</body>
+</html>
+

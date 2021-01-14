@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <title>Intercept Requests</title>
+    
+    
+
+    
+    <link rel="stylesheet" href="../style.min.css">
+
+    
+        <link rel="stylesheet" href="../asciinema-player.min.35765988cd8cec84f5359961847468f8edf73cd0cf76c7c5df611eb925b229fb.css" integrity="sha256-NXZZiM2M7IT1NZlhhHRo&#43;O33PNDPdsfF32EeuSWyKfs=" media="screen">
+        <script src="../asciinema-player.min.31b816eb40dd68ec64b697c2f87018a94a875c7c88a372689ba7d07e691e7e8d.js" integrity="sha256-MbgW60DdaOxktpfC&#43;HAYqUqHXHyIo3Jom6fQfmkefo0="></script>
+        <script src="../asciinema-tutorial.min.523d11b10958c52753bfe427fd7a6cea2a73332d73497032ffd8fb2319d3cf5d.js" integrity="sha256-Uj0RsQlYxSdTv&#43;Qn/Xps6ipzMy1zSXAy/9j7IxnTz10="></script>
+    
+
+    <meta name="generator" content="Hugo 0.68.3" />
+</head>
+<body>
+
+<div class="columns container is-marginless">
+    <div id="sidebar" class="column is-one-quarter">
+        <div class="brand">
+    <a href="https://mitmproxy.org/">
+        <img src='../logo-docs.png' alt="mitmproxy docs"/>
+    </a>
+
+</div>
+<nav class="menu">
+    <p class="menu-label">Overview</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../">Introduction</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-installation/">Installation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-getting-started/">Getting Started</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Beginner Tutorial</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-userinterface/">User Interface</a>
+        </li>
+    
+        <li >
+            <a class="is-active"
+                href="../mitmproxytutorial-interceptrequests/">Intercept Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-modifyrequests/">Modify Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-replayrequests/">Replay Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-whatsnext/">What&#39;s Next</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Core concepts</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../concepts-howmitmproxyworks/">How mitmproxy works</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-modes/">Modes of operation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-certificates/">Certificates</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-features/">Features</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-filters/">Filter expressions</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-protocols/">Protocols</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Addon Development </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../addons-overview/">Addons</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-events/">Events</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-scripting/">Scripting</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-examples/">Example Addons</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> HOWTOs </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../howto-kubernetes/">Kubernetes Services</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent/">Transparent Proxying</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-wireshark-tls/">Wireshark and SSL/TLS</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-ignoredomains/">Ignoring Domains</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent-vms/">Transparently Proxying VMs</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-install-system-trusted-ca-android/">Install System CA on Android</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Tutorials </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../tute-clientreplay/">Client replay</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../tute-highscores/">Setting highscores on Apple GameCenter</a>
+        </li>
+    
+</ul>
+</nav>
+
+    </div>
+    <div id="main" class="column content">
+        
+        
+<a class="button is-small is-outlined is-link is-pulled-right"
+   target="_blank"
+   href="https://github.com/mitmproxy/mitmproxy/blob/master/docs/src/content/mitmproxytutorial-interceptrequests.md"
+>
+    Edit on GitHub
+</a>
+
+
+
+        <h1 id="intercept-requests"><a class="anchor" href="#intercept-requests">#&nbsp;&nbsp;</a>Intercept Requests</h1>
+<p>A powerful feature of mitmproxy is the interception of requests.
+An intercepted request is paused so that the user can modify (or discard) the request before sending it to the server.
+mitmproxy&rsquo;s <code>set intercept</code> command configures interceptions.
+The command is bound to shortcut <code>i</code> by default.</p>
+<p>Intercepting <em>all</em> requests is usually not desired as it constantly interrupts your browsing.
+Thus, mitmproxy expects a <a href="../concepts-filters/">flow filter expression</a> as the first argument to <code>set intercept</code> to selectively intercept requests.
+In the tutorial below we use the flow filter <code>~u &lt;regex&gt;</code> that filters flows by matching the regular expressing on the URL of the request.</p>
+<div class="asciicast-wrapper">
+    <asciinema-player id="asciinema-player" src="../recordings/mitmproxy_intercept_requests.cast" font-size="13px" poster="npt:0:3" preload></asciinema-player>
+        <article class="panel">
+            <p class="panel-heading">
+                Video Content
+            </p><a href="#" class="panel-block" data-from="0" data-to="7">
+                    <span class="instruction-text"><ol>
+<li>Welcome to the mitmproxy tutorial. In this lesson we cover the interception of requests.</li>
+</ol></span>
+                    <span class="tag is-light">00:00</span>
+                </a><a href="#" class="panel-block" data-from="16.1" data-to="20.8">
+                    <span class="instruction-text"><ol start="2">
+<li>We first need to configure mitmproxy to intercept requests.</li>
+</ol></span>
+                    <span class="tag is-light">00:16</span>
+                </a><a href="#" class="panel-block" data-from="21.4" data-to="27.5">
+                    <span class="instruction-text"><ol start="3">
+<li>Press <code>i</code> to prepopulate mitmproxy’s command prompt with <code>set intercept ''</code>.</li>
+</ol></span>
+                    <span class="tag is-light">00:21</span>
+                </a><a href="#" class="panel-block" data-from="30.2" data-to="36.5">
+                    <span class="instruction-text"><ol start="4">
+<li>We use the flow filter expression <code>~u &lt;regex&gt;</code> to only intercept specific URLs.</li>
+</ol></span>
+                    <span class="tag is-light">00:30</span>
+                </a><a href="#" class="panel-block" data-from="37.1" data-to="43.7">
+                    <span class="instruction-text"><ol start="5">
+<li>Additionally, we use the filter <code>~q</code> to only intercept requests, but not responses.</li>
+</ol></span>
+                    <span class="tag is-light">00:37</span>
+                </a><a href="#" class="panel-block" data-from="44.2" data-to="47.3">
+                    <span class="instruction-text"><ol start="6">
+<li>We combine both flow filters using <code>&amp;</code>.</li>
+</ol></span>
+                    <span class="tag is-light">00:44</span>
+                </a><a href="#" class="panel-block" data-from="47.8" data-to="55.2">
+                    <span class="instruction-text"><ol start="7">
+<li>Enter <code>~u /Dunedin &amp; ~q</code> between the quotes of the <code>set intercept</code> command and press <code>ENTER</code>.</li>
+</ol></span>
+                    <span class="tag is-light">00:47</span>
+                </a><a href="#" class="panel-block" data-from="62.8" data-to="67.8">
+                    <span class="instruction-text"><ol start="8">
+<li>The bottom bar shows that the interception has been configured.</li>
+</ol></span>
+                    <span class="tag is-light">01:02</span>
+                </a><a href="#" class="panel-block" data-from="68.4" data-to="73.3">
+                    <span class="instruction-text"><ol start="9">
+<li>Let’s generate a request using <code>curl</code> in a separate terminal.</li>
+</ol></span>
+                    <span class="tag is-light">01:08</span>
+                </a><a href="#" class="panel-block" data-from="96.1" data-to="99.5">
+                    <span class="instruction-text"><ol start="10">
+<li>You see a new line in in the list of flows.</li>
+</ol></span>
+                    <span class="tag is-light">01:36</span>
+                </a><a href="#" class="panel-block" data-from="100" data-to="105.9">
+                    <span class="instruction-text"><ol start="11">
+<li>The new flow is displayed in red to indicate that it has been intercepted.</li>
+</ol></span>
+                    <span class="tag is-light">01:40</span>
+                </a><a href="#" class="panel-block" data-from="106.5" data-to="113.4">
+                    <span class="instruction-text"><ol start="12">
+<li>Put the focus (<code>&gt;&gt;</code>) on the intercepted flow. This is already the case in our example.</li>
+</ol></span>
+                    <span class="tag is-light">01:46</span>
+                </a><a href="#" class="panel-block" data-from="113.9" data-to="118.5">
+                    <span class="instruction-text"><ol start="13">
+<li>Press <code>a</code> to resume this flow without making any changes.</li>
+</ol></span>
+                    <span class="tag is-light">01:53</span>
+                </a><a href="#" class="panel-block" data-from="121.1" data-to="124.5">
+                    <span class="instruction-text"><ol start="14">
+<li>Submit another request and focus its flow.</li>
+</ol></span>
+                    <span class="tag is-light">02:01</span>
+                </a><a href="#" class="panel-block" data-from="128.8" data-to="137">
+                    <span class="instruction-text"><ol start="15">
+<li>Press <code>X</code> to kill this flow, i.e., discard it without forwarding it to its final destination <code>wttr.in</code>.</li>
+</ol></span>
+                    <span class="tag is-light">02:08</span>
+                </a><a href="#" class="panel-block" data-from="141" data-to="146">
+                    <span class="instruction-text"><ol start="16">
+<li>In the next lesson you will learn to modify intercepted flows.</li>
+</ol></span>
+                    <span class="tag is-light">02:21</span>
+                </a></article></div>
+<p>In the next lesson, you will learn to modify intercepted flows before sending them to the server.</p>
+
+
+    </div>
+</div>
+</body>
+</html>
+

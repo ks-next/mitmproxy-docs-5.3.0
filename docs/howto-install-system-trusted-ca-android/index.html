@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <title>Install System CA on Android</title>
+    
+    
+
+    
+    <link rel="stylesheet" href="../style.min.css">
+
+    
+
+    <meta name="generator" content="Hugo 0.68.3" />
+</head>
+<body>
+
+<div class="columns container is-marginless">
+    <div id="sidebar" class="column is-one-quarter">
+        <div class="brand">
+    <a href="https://mitmproxy.org/">
+        <img src='../logo-docs.png' alt="mitmproxy docs"/>
+    </a>
+
+</div>
+<nav class="menu">
+    <p class="menu-label">Overview</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../">Introduction</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-installation/">Installation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-getting-started/">Getting Started</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Beginner Tutorial</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-userinterface/">User Interface</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-interceptrequests/">Intercept Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-modifyrequests/">Modify Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-replayrequests/">Replay Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-whatsnext/">What&#39;s Next</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Core concepts</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../concepts-howmitmproxyworks/">How mitmproxy works</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-modes/">Modes of operation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-certificates/">Certificates</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-features/">Features</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-filters/">Filter expressions</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-protocols/">Protocols</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Addon Development </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../addons-overview/">Addons</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-events/">Events</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-scripting/">Scripting</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-examples/">Example Addons</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> HOWTOs </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../howto-kubernetes/">Kubernetes Services</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent/">Transparent Proxying</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-wireshark-tls/">Wireshark and SSL/TLS</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-ignoredomains/">Ignoring Domains</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent-vms/">Transparently Proxying VMs</a>
+        </li>
+    
+        <li >
+            <a class="is-active"
+                href="../howto-install-system-trusted-ca-android/">Install System CA on Android</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Tutorials </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../tute-clientreplay/">Client replay</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../tute-highscores/">Setting highscores on Apple GameCenter</a>
+        </li>
+    
+</ul>
+</nav>
+
+    </div>
+    <div id="main" class="column content">
+        
+        
+<a class="button is-small is-outlined is-link is-pulled-right"
+   target="_blank"
+   href="https://github.com/mitmproxy/mitmproxy/blob/master/docs/src/content/howto-install-system-trusted-ca-android.md"
+>
+    Edit on GitHub
+</a>
+
+
+
+        <h1 id="install-system-ca-certificate-on-android-emulator"><a class="anchor" href="#install-system-ca-certificate-on-android-emulator">#&nbsp;&nbsp;</a>Install System CA Certificate on Android Emulator</h1>
+<p><a href="https://android-developers.googleblog.com/2016/07/changes-to-trusted-certificate.html">Since Android 7, apps ignore user certificates</a>, unless they are configured to use them.
+As most applications do not explicitly opt in to use user certificates, we need to place our mitmproxy CA certificate in the system certificate store,
+in order to avoid having to patch each application, which we want to monitor.</p>
+<p>Please note, that apps can decide to ignore the system certificate store and maintain their own CA certificates. In this case you have to patch the application.</p>
+<h2 id="1-prerequisites"><a class="anchor" href="#1-prerequisites">#&nbsp;&nbsp;</a>1. Prerequisites</h2>
+<ul>
+<li>
+<p>Emulator from Android SDK with proxy settings pointing to mitmproxy</p>
+</li>
+<li>
+<p>Mitmproxy CA certificate</p>
+<ul>
+<li>Usually located in <code>~/.mitmproxy/mitmproxy-ca-cert.cer</code></li>
+<li>If the folder is empty or does not exist, run <code>mitmproxy</code> in order to generate the certificates</li>
+</ul>
+</li>
+</ul>
+<h2 id="2-rename-certificate"><a class="anchor" href="#2-rename-certificate">#&nbsp;&nbsp;</a>2. Rename certificate</h2>
+<p>Enter your certificate folder</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cd ~/.mitmproxy/
+</code></pre></div><ul>
+<li>CA Certificates in Android are stored by the name of their hash, with a &lsquo;0&rsquo; as extension</li>
+<li>Now generate the hash of your certificate</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">openssl x509 -inform PEM -subject_hash_old -in mitmproxy-ca-cert.cer | head -1
+</code></pre></div><p>Lets assume, the output is <code>c8450d0d</code></p>
+<p>We can now copy <code>mitmproxy-ca-cert.cer</code> to <code>c8450d0d.0</code> and our system certificate is ready to use</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp mitmproxy-ca-cert.cer c8450d0d.0
+</code></pre></div><h2 id="3-insert-certificate-into-system-certificate-store"><a class="anchor" href="#3-insert-certificate-into-system-certificate-store">#&nbsp;&nbsp;</a>3. Insert certificate into system certificate store</h2>
+<p>Note, that Android 9 (API LEVEL 28) was used to test the following steps and that the <code>emulator</code> executable is located in the Android SDK</p>
+<ul>
+<li>Start your android emulator.
+<ul>
+<li>Get a list of your AVDs with <code>emulator -list-avds</code></li>
+<li>Make sure to use the <code>-writable-system</code> option. Otherwise it will not be possible to write to <code>/system</code></li>
+<li>Keep in mind, that the <strong>emulator will load a clean system image when starting without <code>-writable-system</code> option</strong>.</li>
+<li>This means you always have to start the emulator with <code>-writable-system</code> option in order to use your certificate</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">emulator -avd &lt;avd_name_here&gt; -writable-system
+</code></pre></div><ul>
+<li>Restart adb as root</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adb root
+</code></pre></div><ul>
+<li>Get write access to <code>/system</code> on the device</li>
+<li>In earlier versions (API LEVEL &lt; 28) of Android you have to use <code>adb shell &quot;mount -o rw,remount /system&quot;</code></li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adb shell <span style="color:#e6db74">&#34;mount -o rw,remount /&#34;</span>
+</code></pre></div><ul>
+<li>Push your certificate to the system certificate store and set file permissions</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adb push c8450d0d.0 /system/etc/security/cacerts
+adb shell <span style="color:#e6db74">&#34;chmod 664 /system/etc/security/cacerts/c8450d0d.0&#34;</span>
+</code></pre></div><h2 id="4-reboot-device-and-enjoy-decrypted-tls-traffic"><a class="anchor" href="#4-reboot-device-and-enjoy-decrypted-tls-traffic">#&nbsp;&nbsp;</a>4. Reboot device and enjoy decrypted TLS traffic</h2>
+<ul>
+<li>Reboot your device.
+<ul>
+<li>You CA certificate should now be system trusted</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">adb reboot
+</code></pre></div><p><strong>Remember</strong>: You <strong>always</strong> have to start the emulator using the <code>-writable-system</code> option in order to use your certificate</p>
+
+
+    </div>
+</div>
+</body>
+</html>
+

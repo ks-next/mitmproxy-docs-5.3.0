@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <title>Installation</title>
+    
+    
+
+    
+    <link rel="stylesheet" href="../style.min.css">
+
+    
+
+    <meta name="generator" content="Hugo 0.68.3" />
+</head>
+<body>
+
+<div class="columns container is-marginless">
+    <div id="sidebar" class="column is-one-quarter">
+        <div class="brand">
+    <a href="https://mitmproxy.org/">
+        <img src='../logo-docs.png' alt="mitmproxy docs"/>
+    </a>
+
+</div>
+<nav class="menu">
+    <p class="menu-label">Overview</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../">Introduction</a>
+        </li>
+    
+        <li >
+            <a class="is-active"
+                href="../overview-installation/">Installation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-getting-started/">Getting Started</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Beginner Tutorial</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-userinterface/">User Interface</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-interceptrequests/">Intercept Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-modifyrequests/">Modify Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-replayrequests/">Replay Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-whatsnext/">What&#39;s Next</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Core concepts</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../concepts-howmitmproxyworks/">How mitmproxy works</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-modes/">Modes of operation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-certificates/">Certificates</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-features/">Features</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-filters/">Filter expressions</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-protocols/">Protocols</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Addon Development </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../addons-overview/">Addons</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-events/">Events</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-scripting/">Scripting</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-examples/">Example Addons</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> HOWTOs </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../howto-kubernetes/">Kubernetes Services</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent/">Transparent Proxying</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-wireshark-tls/">Wireshark and SSL/TLS</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-ignoredomains/">Ignoring Domains</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent-vms/">Transparently Proxying VMs</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-install-system-trusted-ca-android/">Install System CA on Android</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Tutorials </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../tute-clientreplay/">Client replay</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../tute-highscores/">Setting highscores on Apple GameCenter</a>
+        </li>
+    
+</ul>
+</nav>
+
+    </div>
+    <div id="main" class="column content">
+        
+        
+<a class="button is-small is-outlined is-link is-pulled-right"
+   target="_blank"
+   href="https://github.com/mitmproxy/mitmproxy/blob/master/docs/src/content/overview-installation.md"
+>
+    Edit on GitHub
+</a>
+
+
+
+        <h1 id="installation"><a class="anchor" href="#installation">#&nbsp;&nbsp;</a>Installation</h1>
+<p>Please follow the steps for your operating system.</p>
+<h2 id="macos"><a class="anchor" href="#macos">#&nbsp;&nbsp;</a>macOS</h2>
+<p>The recommended way to install mitmproxy on macOS is to use
+<a href="https://brew.sh/">Homebrew</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">brew install mitmproxy
+</code></pre></div><p>Alternatively, you can download standalone binaries on <a href="https://mitmproxy.org/">mitmproxy.org</a>.</p>
+<h2 id="linux"><a class="anchor" href="#linux">#&nbsp;&nbsp;</a>Linux</h2>
+<p>The recommended way to install mitmproxy on Linux is to download the
+standalone binaries on <a href="https://mitmproxy.org/">mitmproxy.org</a>.</p>
+<p>Some Linux distributions provide community-supported mitmproxy packages through
+their native package repositories (e.g., Arch Linux, Debian, Ubuntu, Kali Linux,
+OpenSUSE, etc.). We are not involved in the maintenance of downstream packaging
+efforts, and they often lag behind the current mitmproxy release. Please contact
+the repository maintainers directly for issues with native packages.</p>
+<h2 id="windows"><a class="anchor" href="#windows">#&nbsp;&nbsp;</a>Windows</h2>
+<p>All the mitmproxy tools are fully supported under <a href="https://docs.microsoft.com/en-us/windows/wsl/about">WSL (Windows Subsystem for
+Linux)</a>. We recommend to
+<a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">install WSL</a>, and
+then follow the mitmproxy installation instructions for Linux.</p>
+<p>We also distribute native Windows packages for all tools other than the
+mitmproxy console app, which only works under WSL. To install mitmproxy on
+Windows, download the installer from <a href="https://mitmproxy.org/">mitmproxy.org</a>.
+After installation, you&rsquo;ll find shortcuts for mitmweb and mitmdump in the start
+menu. Both executables are added to your PATH and can be invoked from the
+command line.</p>
+<h2 id="advanced-installation"><a class="anchor" href="#advanced-installation">#&nbsp;&nbsp;</a>Advanced Installation</h2>
+<h3 id="development-setup"><a class="anchor" href="#development-setup">#&nbsp;&nbsp;</a>Development Setup</h3>
+<p>If you would like to install mitmproxy directly from source code or the
+GitHub master branch, please see the our
+<a href="https://github.com/mitmproxy/mitmproxy#installation">README</a>
+on GitHub.</p>
+<h3 id="installation-from-the-python-package-index-pypi"><a class="anchor" href="#installation-from-the-python-package-index-pypi">#&nbsp;&nbsp;</a>Installation from the Python Package Index (PyPI)</h3>
+<p>If your mitmproxy addons require the installation of additional Python packages,
+you can install mitmproxy from <a href="https://pypi.org/project/mitmproxy/">PyPI</a>.</p>
+<p>While there are plenty of options around<sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup>, we recommend the installation using pipx:</p>
+<ol>
+<li>Install a recent version of Python (we require at least 3.6).</li>
+<li>Install <a href="https://pipxproject.github.io/pipx/">pipx</a>.</li>
+<li><code>pipx install mitmproxy</code></li>
+</ol>
+<p>To install additional Python packages, run <code>pipx inject mitmproxy &lt;your-package-name&gt;</code>.</p>
+<h3 id="docker-images"><a class="anchor" href="#docker-images">#&nbsp;&nbsp;</a>Docker Images</h3>
+<p>You can use the official mitmproxy images from
+<a href="https://hub.docker.com/r/mitmproxy/mitmproxy/">DockerHub</a>.</p>
+<h3 id="security-considerations-for-binary-packages"><a class="anchor" href="#security-considerations-for-binary-packages">#&nbsp;&nbsp;</a>Security Considerations for Binary Packages</h3>
+<p>Our pre-compiled binary packages and Docker images include a self-contained
+Python 3 environment,  a recent version of OpenSSL that support ALPN and HTTP/2,
+and other dependencies that would otherwise be cumbersome to compile and
+install.</p>
+<p>Dependencies in the binary packages are frozen on release, and can&rsquo;t be updated
+in situ. This means that we necessarily capture any bugs or security issues that
+may be present. We don&rsquo;t generally release new binary packages simply to update
+dependencies (though we may do so if we become aware of a really serious issue).
+If you use our binary packages, please make sure you update regularly to ensure
+that everything remains current.</p>
+<p>As a general principle, mitmproxy does not &ldquo;phone home&rdquo; and consequently will not do any update checks.</p>
+<section class="footnotes" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn:1" role="doc-endnote">
+<p>If you are familiar with the Python ecosystem, you may know that there are a million ways to install Python
+packages. Most of them (pip, virtualenv, pipenv, etc.) should just work, but we don&rsquo;t have the capacity to
+provide support for it. <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+</ol>
+</section>
+
+
+    </div>
+</div>
+</body>
+</html>
+

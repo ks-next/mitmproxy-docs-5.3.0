@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <title>Getting Started</title>
+    
+    
+
+    
+    <link rel="stylesheet" href="../style.min.css">
+
+    
+
+    <meta name="generator" content="Hugo 0.68.3" />
+</head>
+<body>
+
+<div class="columns container is-marginless">
+    <div id="sidebar" class="column is-one-quarter">
+        <div class="brand">
+    <a href="https://mitmproxy.org/">
+        <img src='../logo-docs.png' alt="mitmproxy docs"/>
+    </a>
+
+</div>
+<nav class="menu">
+    <p class="menu-label">Overview</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../">Introduction</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-installation/">Installation</a>
+        </li>
+    
+        <li >
+            <a class="is-active"
+                href="../overview-getting-started/">Getting Started</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Beginner Tutorial</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-userinterface/">User Interface</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-interceptrequests/">Intercept Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-modifyrequests/">Modify Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-replayrequests/">Replay Requests</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../mitmproxytutorial-whatsnext/">What&#39;s Next</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label">Core concepts</p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../concepts-howmitmproxyworks/">How mitmproxy works</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-modes/">Modes of operation</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-certificates/">Certificates</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../overview-features/">Features</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-filters/">Filter expressions</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../concepts-protocols/">Protocols</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Addon Development </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../addons-overview/">Addons</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-events/">Events</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-options/">Options</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-commands/">Commands</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-scripting/">Scripting</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../addons-examples/">Example Addons</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> HOWTOs </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../howto-kubernetes/">Kubernetes Services</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent/">Transparent Proxying</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-wireshark-tls/">Wireshark and SSL/TLS</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-ignoredomains/">Ignoring Domains</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-transparent-vms/">Transparently Proxying VMs</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../howto-install-system-trusted-ca-android/">Install System CA on Android</a>
+        </li>
+    
+</ul>
+
+    <p class="menu-label"> Tutorials </p>
+    <ul class="menu-list">
+    
+    
+    
+    
+        <li >
+            <a class=""
+                href="../tute-clientreplay/">Client replay</a>
+        </li>
+    
+        <li >
+            <a class=""
+                href="../tute-highscores/">Setting highscores on Apple GameCenter</a>
+        </li>
+    
+</ul>
+</nav>
+
+    </div>
+    <div id="main" class="column content">
+        
+        
+<a class="button is-small is-outlined is-link is-pulled-right"
+   target="_blank"
+   href="https://github.com/mitmproxy/mitmproxy/blob/master/docs/src/content/overview-getting-started.md"
+>
+    Edit on GitHub
+</a>
+
+
+
+        <h1 id="getting-started"><a class="anchor" href="#getting-started">#&nbsp;&nbsp;</a>Getting Started</h1>
+<p>We assume you have already <a href="../overview-installation/">installed</a> mitmproxy on
+your machine.</p>
+<h2 id="launch-the-tool-you-need"><a class="anchor" href="#launch-the-tool-you-need">#&nbsp;&nbsp;</a>Launch the tool you need</h2>
+<p>You can start any of our three tools from the command line / terminal.</p>
+<ul>
+<li><strong>mitmproxy</strong> gives you an interactive TUI</li>
+<li><strong>mitmweb</strong> gives you a browser-based GUI</li>
+<li><strong>mitmdump</strong> gives you a plain and simple terminal output</li>
+</ul>
+<p>In case you use the console-based version of mitmproxy, we highly recommend you to take the <a href="../mitmproxytutorial-userinterface/">tutorial</a> to get started.</p>
+<h2 id="configure-your-browser-or-device"><a class="anchor" href="#configure-your-browser-or-device">#&nbsp;&nbsp;</a>Configure your browser or device</h2>
+<p>For the basic setup as <a href="../concepts-modes/#regular-proxy">regular proxy</a>, you need to configure your browser or device
+to route all web traffic through mitmproxy as HTTP proxy. Browser versions and
+configurations options frequently change, so we recommend to simply search the
+web on how to configure an HTTP proxy for your system. Some operating system
+have a global settings, some browser have their own, other applications use
+environment variables, etc.</p>
+<p>You can check that your web traffic is going through mitmproxy by browsing to
+<a href="http://mitm.it">http://mitm.it</a> - it should present you with a <a href="../concepts-certificates/#quick-setup">simple page</a> to install the mitmproxy Certificate
+Authority - which is also the next steps. Follow the instructions for your OS /
+system and install the CA (and make sure to enable it, some system require
+multiple steps!).</p>
+<h2 id="verifying-everything-works"><a class="anchor" href="#verifying-everything-works">#&nbsp;&nbsp;</a>Verifying everything works</h2>
+<p>At this point your running mitmproxy instance should already show the first HTTP
+flows from your client. You can test that all TLS-encrypted web traffic is
+working as expected by browsing to <a href="https://mitmproxy.org">https://mitmproxy.org</a> - it should show up as
+new flow and you can inspect it.</p>
+<h2 id="resources"><a class="anchor" href="#resources">#&nbsp;&nbsp;</a>Resources</h2>
+<ul>
+<li><a href="https://stackoverflow.com/questions/tagged/mitmproxy"><strong>StackOverflow</strong></a>: If you want to ask usage questions, please do so on StackOverflow.</li>
+<li><a href="https://github.com/mitmproxy/"><strong>GitHub</strong></a>: If you want to contribute to mitmproxy or submit a bug report, please do so on GitHub.</li>
+<li><a href="https://mitmproxy.slack.com"><strong>Slack</strong></a>: If you want to get in touch with the developers or other users, please use our Slack channel.</li>
+</ul>
+
+
+    </div>
+</div>
+</body>
+</html>
+
